@@ -21,8 +21,8 @@
     $feed_explicit = "yes";
     $feed_category = "RSS Streaming";    
     $feed_subcategory = "Streams";
-	$xml_encoding  = '<?xml version="1.0" encoding="utf-8"?>'."\n";
-	echo $xml_encoding;
+    $xml_encoding  = '<?xml version="1.0" encoding="utf-8"?>'."\n";
+    echo $xml_encoding;
 ?>
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
@@ -68,12 +68,12 @@
                     // ITUNES DOES NOT SUPPORT ALL HTTPS CERTIFICATES
                     $stream_url = str_replace('https','http',$stream_url);
                     // $stream_author = $feed_author; // AUTHOR FROM MAIN
-					$stream_author = $row["author"]; // AUTHOR FROM SQL
-					$stream_thumbnail = $row["thumbnail"];
-					$stream_fanart = $row["fanart"]; 
-                    $stream_description = htmlentities($row["description"]);  
-                    $stream_category = $row["category"]; 					
-                    $pub_date = date("r", strtotime($row["created_date"]));
+		   $stream_author = $row["author"]; // AUTHOR FROM SQL
+                   $stream_thumbnail = $row["thumbnail"];
+                   $stream_fanart = $row["fanart"]; 
+                   $stream_description = htmlentities($row["description"]);  
+                   $stream_category = $row["category"]; 					
+                   $pub_date = date("r", strtotime($row["created_date"]));
 ?>
     <!-- COMBINED FOR KODI PLAYER -->
         <item>
