@@ -56,8 +56,8 @@ $db = new SQLite3($database_file_name); // CONNECTION
     $feed_explicit = "yes";
     $feed_category = "RSS Streaming";    
     $feed_subcategory = "Streams";
-	$xml_encoding  = '<?xml version="1.0" encoding="utf-8"?>'."\n";
-	//echo $xml_encoding;
+    $xml_encoding  = '<?xml version="1.0" encoding="utf-8"?>'."\n";
+    //echo $xml_encoding;
 	
 header("Content-type: text/xml");
 echo "<?xml version='1.0' encoding='UTF-8'?>
@@ -80,23 +80,23 @@ $items_array = [];
 $res = $db->query("SELECT * FROM $table_name");
 while ($row = $res->fetchArray()) {
     $title       = htmlspecialchars($row["title"]);
-	$link        = htmlspecialchars($row["stream_url"]);
-	$thumbnail   = htmlspecialchars($row["thumbnail"]);
-	$fanart      = htmlspecialchars($row["fanart"]);
-	$category    = htmlspecialchars($row["category"]);
-	$description = htmlspecialchars($row["description"]);
-	$author      = htmlspecialchars($row["author"]);
+    $link        = htmlspecialchars($row["stream_url"]);
+    $thumbnail   = htmlspecialchars($row["thumbnail"]);
+    $fanart      = htmlspecialchars($row["fanart"]);
+    $category    = htmlspecialchars($row["category"]);
+    $description = htmlspecialchars($row["description"]);
+    $author      = htmlspecialchars($row["author"]);
     $pubDate     = htmlspecialchars($row["created_date"]);
 
 $item_structure = "<item>
-        <title>$title</title>
-        <link>$link</link>
-		<thumbnail>$thumbnail</thumbnail>
-		<fanart>$fanart</fanart>
-		<category>$category</category>
-		<description>$description</description>
-		<author>$author</author>
-        <pubDate>$pubDate</pubDate>
+    <title>$title</title>
+    <link>$link</link>
+    <thumbnail>$thumbnail</thumbnail>
+    <fanart>$fanart</fanart>
+    <category>$category</category>
+    <description>$description</description>
+    <author>$author</author>
+    <pubDate>$pubDate</pubDate>
 </item>\n";
     array_unshift($items_array, $item_structure);
 }
